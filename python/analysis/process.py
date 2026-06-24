@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-process.py — CLI for the GPUParticles cluster-side analysis pipeline.
+process.py — CLI for the MaxwellABP cluster-side analysis pipeline.
 
 Subcommands:
     map     <sweep_dir> --analyses ... [--backend local|slurm] ...
@@ -64,7 +64,7 @@ def _make_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="process.py",
         description=(
-            "Map-reduce analysis pipeline for GPUParticles parameter sweeps."
+            "Map-reduce analysis pipeline for MaxwellABP parameter sweeps."
         ),
     )
     sub = p.add_subparsers(dest="cmd", required=True)

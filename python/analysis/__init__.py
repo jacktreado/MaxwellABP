@@ -1,5 +1,5 @@
 """
-analysis — cluster-side processing pipeline for GPUParticles parameter sweeps.
+analysis — cluster-side processing pipeline for MaxwellABP parameter sweeps.
 
 Public API:
     PsweepCollector  — read-only navigator over a sweep directory.

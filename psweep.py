@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-psweep.py — Parameter sweeps for the GPUParticles Brownian sim.
+psweep.py — Parameter sweeps for the MaxwellABP sims.
 
 For each Cartesian-product combination of the swept variables, and for each
 random seed, this script writes one input JSON, optionally generates a SLURM
@@ -41,6 +41,7 @@ Examples:
 """
 
 import argparse
+import getpass
 import itertools
 import json
 import os
@@ -58,7 +59,8 @@ REPO_ROOT       = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_BASE    = os.path.join(REPO_ROOT, "examples", "input.json")
 BUILD_DIR       = os.path.join(REPO_ROOT, "build")
 DEFAULT_BINARY  = os.path.join(BUILD_DIR, "sim")
-DEFAULT_OUT_DIR = "/home/treado/data/GPUParticles/"
+# NOTE: update this to match your HPC cluster's storage layout.
+DEFAULT_OUT_DIR = f"/home/{getpass.getuser()}/data/MaxwellABP/"
 
 
 # ---- What may and may not be swept ------------------------------------------
@@ -126,7 +128,7 @@ STRING_FIELDS = {"integrator", "potential", "init_mode", "output_file"}
 def make_parser():
     p = argparse.ArgumentParser(
         prog="psweep.py",
-        description="Parameter sweep driver for the GPUParticles Brownian sim.",
+        description="Parameter sweep driver for the MaxwellABP simulation repository.",
         epilog=__doc__,
         formatter_class=argparse.RawTextHelpFormatter,
     )

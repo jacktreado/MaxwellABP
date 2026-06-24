@@ -1,5 +1,5 @@
 """
-bdtrajectory.py — Python interface for GPUParticles HDF5 trajectory files.
+bdtrajectory.py — Python interface for MaxwellABP HDF5 trajectory files.
 
 The BDTrajectory class reads the HDF5 files written by the simulation engine
 and exposes the trajectory data through a clean, Pythonic API.  All
@@ -72,7 +72,7 @@ FrameData = namedtuple(
 # ---------------------------------------------------------------------------
 class BDTrajectory:
     """
-    Read-only interface to a GPUParticles Brownian-dynamics trajectory.
+    Read-only interface to a MaxwellABP Brownian-dynamics trajectory.
 
     Parameters
     ----------

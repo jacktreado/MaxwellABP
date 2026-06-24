@@ -125,7 +125,7 @@ def closure_B_veff(Pi1: float, v0: float = 1.0):  # noqa: ARG001
 
 def read_run(h5path: str | Path) -> dict:
     """
-    Open a GPUParticles trajectory HDF5 and return a dict with
+    Open a MaxwellABP trajectory HDF5 and return a dict with
     physical parameters, dimensionless groups, and (if present)
     the on-the-fly correlator (tau, C_vn, C_Fn, C_vv).
 

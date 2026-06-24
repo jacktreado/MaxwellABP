@@ -451,7 +451,7 @@ int main(int /*argc*/, char** /*argv*/) {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
     GLFWwindow* window = glfwCreateWindow(
-        1280, 820, "GPUParticles — interactive ABP+anchor", nullptr, nullptr);
+        1280, 820, "MaxwellABP — interactive ABP+anchor", nullptr, nullptr);
     if (!window) { glfwTerminate(); return 1; }
 
     glfwMakeContextCurrent(window);

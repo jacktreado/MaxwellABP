@@ -4,11 +4,11 @@ A modular **C++17** engine for **2D active Brownian particles (ABPs)** with
 **Maxwell-type viscoelastic anchors**, integrated under overdamped Langevin
 (Brownian) dynamics. Each particle is repulsive (WCA or soft-sphere), optionally
 self-propelled, and tethered to an anchor by a spring-in-series-with-a-dashpot — a
-*Maxwell* viscoelastic element, which is where the name comes from. State is laid
-out as a Structure-of-Arrays so the kernels port to GPU with minimal change.
+*Maxwell* viscoelastic element, which is where the name comes from.
 
-> 📖 **Full documentation lives in the [wiki/](wiki/Home.md) folder** (and is meant
-> to be published to this repo's GitHub Wiki).
+Based on code originally developed by Lara Koehler & John D. (Jack) Treado, located in [this repository](https://github.com/lara-koehler/ViscoElasticActiveBrownianParticles).
+
+Code related to simulations described in Ivan Di Terlizzi*, Lara Koehler*, and John D. Treado*, [arXiv:2605.29162](https://arxiv.org/abs/2605.29162) (2026).
 
 ---
 
@@ -16,7 +16,7 @@ out as a Structure-of-Arrays so the kernels port to GPU with minimal change.
 
 - WCA / harmonic soft-sphere repulsion with periodic minimum-image.
 - Active Brownian self-propulsion (`f0` from a steady-state overlap `delta`; persistence via `Pe`).
-- Maxwell viscoelastic anchors (spring `k_a` + dashpot `gamma_a`, memory set by `De`, `R`).
+- Maxwell viscoelastic anchors (spring `k_a` + dashpot `gamma_a`, memory set by Deborah Number (`De`) and friction ratio `R`).
 - Two integrators: Euler–Maruyama and stochastic Heun (weak order 2).
 - Sort-based cell / Verlet neighbor lists (GPU-shaped, with small-box brute-force fallback).
 - On-the-fly velocity/force/orientation correlations and contact-duration statistics.
@@ -96,3 +96,17 @@ ctest --test-dir build --output-on-failure
 ```
 
 See [Building & Testing](wiki/Building.md) for details and per-suite filters.
+
+---
+
+## GUI
+
+In order to compile the GUI simulator:
+```bash
+cmake -S . -B build-gui -DBUILD_GUI=ON -DCMAKE_BUILD_TYPE=Release
+cmake --build build-gui --target sim_gui -j
+```
+To run, use
+```bash
+./build-gui/gui/sim_gui  
+```
