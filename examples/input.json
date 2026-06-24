@@ -1,0 +1,26 @@
+{
+  "N": 256,
+  "phi": 0.5,
+
+  "Pe": 1.0,
+  "De": 1.0,
+  "R": 1.0,
+  "C": 1e-4,
+  "delta": 0.95,
+  "potential": "soft_sphere",
+
+  "integrator": "heun",
+  "dt_init": 0.01,
+  "t_end": 1.0,
+  "output_dt": 0.01,
+
+  "max_drift": 0.1,
+  "r_skin": 0.5,
+
+  "init_mode": "lattice",
+  "seed": 0,
+  "output_file": "trajectory.h5",
+
+  "compute_correlations": false,
+  "compute_contact_durations": false
+}

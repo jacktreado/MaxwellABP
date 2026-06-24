@@ -1,0 +1,8 @@
+build/
+build/*
+build*
+local/
+local/*
+__pycache__
+imgui.ini
+.DS_Store

@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S", "${workspaceFolder}",
+                "-B", "${workspaceFolder}/build",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DBUILD_GUI=OFF"
+            ],
+            "group": "build",
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${workspaceFolder}/build",
+                "-j"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "dependsOn": "CMake: Configure",
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "CMake: Build Release",
+            "type": "shell",
+            "command": "cmake -S \"${workspaceFolder}\" -B \"${workspaceFolder}/build\" -DCMAKE_BUILD_TYPE=Release -DBUILD_GUI=OFF && cmake --build \"${workspaceFolder}/build\" -j",
+            "group": "build",
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "CTest: Run All Tests",
+            "type": "shell",
+            "command": "ctest",
+            "args": [
+                "--test-dir", "${workspaceFolder}/build",
+                "--output-on-failure",
+                "-j4"
+            ],
+            "group": { "kind": "test", "isDefault": true },
+            "dependsOn": "CMake: Build",
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run: sim (no args)",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/sim",
+            "group": "none",
+            "dependsOn": "CMake: Build",
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": []
+        }
+    ]
+}

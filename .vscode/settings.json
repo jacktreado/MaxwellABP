@@ -1,0 +1,14 @@
+{
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.sourceDirectory": "${workspaceFolder}",
+    "cmake.buildType": "Debug",
+    "cmake.configureArgs": [
+        "-DBUILD_GUI=OFF"
+    ],
+    "cmake.generator": "Unix Makefiles",
+    "cmake.parallelJobs": 0,
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.cppStandard": "c++17",
+    "editor.formatOnSave": false
+}
