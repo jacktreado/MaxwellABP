@@ -50,22 +50,6 @@ Run the binary directly for full control:
 ./build/sim run  examples/input.json --N 500 --phi 0.7 --integrator heun
 ```
 
----
-
-## Documentation
-
-| Page | Contents |
-|---|---|
-| [Model & Physics](wiki/Model-Physics.md) | potentials, Langevin SDEs, the Maxwell anchor, dimensionless `Pe / De / R / C / delta` |
-| [Integrators](wiki/Integrators.md) | EM, Heun; cell-list neighbor search |
-| [Building & Testing](wiki/Building.md) | dependencies, CMake, build options, test suite, troubleshooting |
-| [Running](wiki/Running.md) | `sim` CLI, `run.py`, `psweep.py`, GUI |
-| [Configuration Reference](wiki/Configuration-Reference.md) | every JSON field, default, and validation rule |
-| [Output & Analysis](wiki/Output-and-Analysis.md) | HDF5 layout + Python tooling |
-
-> **Publishing to the GitHub Wiki:** the `wiki/` pages are named for GitHub's wiki
-> convention (`Home`, `_Sidebar`, etc.). Clone the wiki repo
-> (`git clone <repo>.wiki.git`), copy the `wiki/*.md` files in, and push.
 
 ---
 
@@ -84,7 +68,6 @@ MaxwellABP/
 ├── psweep.py                # parameter sweeps   -> SLURM jobs
 ├── python/                  # bdtrajectory loader + analysis pipeline
 ├── tests/                   # pytest suite for the Python pipeline
-└── wiki/                    # documentation
 ```
 
 ---
