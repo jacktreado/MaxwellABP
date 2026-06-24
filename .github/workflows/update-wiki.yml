@@ -1,0 +1,38 @@
+name: Update Wiki
+
+on:
+  push:
+    branches:
+      - main  # Replace with your default branch if it's not 'main'
+    paths:
+      - 'wiki/**'  # Trigger only when files in the 'wiki' folder are updated
+
+jobs:
+  update-wiki:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Check out the Wiki repository
+      - name: Checkout Wiki
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki-repo
+
+      # Step 3: Copy files from the 'wiki' folder to the Wiki repository
+      - name: Copy Wiki files
+        run: |
+          cp -r wiki/* wiki-repo/
+
+      # Step 4: Commit and push changes to the Wiki
+      - name: Commit and Push to Wiki
+        run: |
+          cd wiki-repo
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "Update Wiki from repository"
+          git push
