@@ -2,8 +2,7 @@
 
 **MaxwellABP** is a modular C++17 engine for **2D active Brownian particles** with
 **Maxwell-type viscoelastic anchors**, integrated under overdamped Langevin
-(Brownian) dynamics. State is stored as a Structure-of-Arrays and the kernels are
-written for a near-mechanical GPU port.
+(Brownian) dynamics.
 
 The name comes from the model: each particle is tethered to an anchor by a **spring
 in series with a dashpot** — a *Maxwell* viscoelastic element — while being driven
