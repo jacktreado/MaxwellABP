@@ -110,3 +110,5 @@ To run, use
 ```bash
 ./build-gui/gui/sim_gui  
 ```
+![ImGUI Screenshot](screenshot.png)
+GUI built using [Dear ImGui](https://github.com/ocornut/imgui).
